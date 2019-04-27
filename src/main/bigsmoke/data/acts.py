@@ -37,7 +37,7 @@ NAZ_OSMANOGLU = Act(
 )
 
 MARC_SALMON = Act(
-    name = "Mark Salmon"
+    name = "Marc Salmon"
 )
 
 DELEA_SHAND = Act(
