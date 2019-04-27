@@ -7,17 +7,22 @@ services:
 
   python:
     <<: *base-dev
-    image: salimfadhley/python_playground:latest
     build:
       context: .
       target: python
     volumes:
       - ./src:/src
       - .:/project
-  cleaner:
-    image: salimfadhley/cleaner:latest
+
+  bigsmokepython:
+    <<: *base-dev
+    image: salimfadhley/bigsmoke_python:latest
+    build:
+      context: .
+      target: bigsmokepython
     volumes:
       - ./src:/src
+      - .:/project
 
 
 

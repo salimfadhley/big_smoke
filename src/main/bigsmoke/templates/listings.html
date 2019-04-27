@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Big Smoke Listings.</title>
+</head>
+<body>
+
+{% for se in m.all_events() %}
+<h1>{{se.series.name}} - {{se.event.date.strftime("%A %d %B %Y")}}</h1>
+
+<p><strong>{{se.series.location.name}}</strong>, {{se.series.location.address}}.</p>
+
+<p>Price of admission: <strong>{{se.series.price}}</strong></p>
+
+        <ul>
+            {% for act in se.event.acts %}
+            <li>{{act.name}}{%if act.alias%} as {{act.alias}}{% endif %}</li>
+            {% endfor %}
+
+            <li>MC: <strong>{{se.event.mc.name}}</strong></li>
+        </ul>
+
+
+
+    {% if se.event.num_acts() < 8 %}<p>More acts to be revealed shortly.</p>{% endif %}
+
+
+{% endfor %}
+</body>
+</html>
