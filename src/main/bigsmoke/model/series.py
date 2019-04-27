@@ -11,6 +11,6 @@ class Series:
     name: str
     location: Location
     about: str
-    start_time: datetime.time = datetime.time(8,0)
+    start_time: datetime.time = datetime.time(8, 0)
     price: str = "Free"
     events: List[Event] = field(default_factory=list)

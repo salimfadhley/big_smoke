@@ -13,10 +13,5 @@ class Event:
     mc: Act
     acts: List[Act] = field(default_factory=list)
 
-    def num_acts(self)->int:
+    def num_acts(self) -> int:
         return len(self.acts)
-
-
-
-
-
