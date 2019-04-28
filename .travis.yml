@@ -1,7 +1,10 @@
 language: python
+python:
+  - '3.6'
 services:
   - docker
-python:
-- '3.6'
-install:
-  - docker build . -t salimfadhley/dockerized_python_playground:latest
+#before_install:
+script:
+  - mkdir output
+  - docker build . --target bigsmokepython --tag latest
+#after_success: ./publish.sh
