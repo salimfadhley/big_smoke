@@ -5,25 +5,38 @@ x-base-dev: &base-dev
 
 services:
 
-  python:
+#  python:
+#    <<: *base-dev
+#    build:
+#      context: .
+#      target: python
+#    volumes:
+#      - ./src:/src
+#      - .:/project
+#
+#  bigsmokepython:
+#    <<: *base-dev
+#    image: salimfadhley/bigsmoke_python:latest
+#    build:
+#      context: .
+#      target: bigsmokepython
+#    volumes:
+#      - ./src:/src
+#      - .:/project
+
+  vue:
     <<: *base-dev
+    image: salimfadhley/bigsmoke_vue:latest
     build:
       context: .
-      target: python
+      target: base_vue
     volumes:
       - ./src:/src
       - .:/project
-
-  bigsmokepython:
-    <<: *base-dev
-    image: salimfadhley/bigsmoke_python:latest
-    build:
-      context: .
-      target: bigsmokepython
-    volumes:
-      - ./src:/src
-      - .:/project
-
+    entrypoint: /bin/bash
+    working_dir: /src/js
+    expose:
+      - '8000'
 
 
 
